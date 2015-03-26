@@ -23,6 +23,19 @@ module.exports = function (grunt) {
 					i18nType: 'DTD'
 				},
 				src: __dirname + '/locales/en.dtd'
+			},
+			convert: {
+				options: {
+					username: 'chesley',
+					password: 'you-wish-you-knew',
+					project: 'grunt-tx-source-upload-example',
+					resource: 'core',
+					i18nType: 'DTD',
+					convert: function (content) {
+						return content.toString().replace(/<\!ENTITY/gm, '<!COOL');
+					}
+				},
+				src: __dirname + '/locales/en.dtd'
 			}
 		}
 	});
